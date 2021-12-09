@@ -1,27 +1,27 @@
 ### Choosing or creating an Animator
-The Unity starter asset pack includes animations that can be used with the models. It also includes some Animators including 'IdleWalk' and others in the 'Animation/More/Animators' folder including Animators for the Car models. 
+The Unity starter asset pack includes animations that can be used with the models. It also includes some Animators such as IdleWalk and others in the Animation/More/Animators folder including Animators for the Car models. 
 
-![Car model animator and game view showing a red car moving with animation.](images/car-anim.gif)
+![Car model animator and Game view showing a red car moving with animation.](images/car-anim.gif)
 
-To create your own animation, select the 'Animation' folder in the Project window and right-click then create a new Animation Controller. 
+To create your own animation, select the Animation folder in the Project window and right-click, then create a new Animation Controller. 
 
-Click on the GameObject that will use the Animator and go to the Inspector window. Drag the Animator controller to the 'Controller' property in the 'Animator' component:
+Click on the GameObject that will use the Animator and go to the Inspector window. Drag the Animator controller to the Controller property in the Animator component:
 
-![The animator component with 'FollowMove' in the Controller property.](images/animator-follow.png)
+![The Animator component with 'FollowMove' in the Controller property.](images/animator-follow.png)
 
 Double-click on the Animator to open it in the Animation window. Drag in the animations you want to use. Right-click on animations to add transitions for all the animation changes that you character can make. 
 
 ![The animator window with new 'Dog_Run' grey box and arrows going between the idle and run boxes in both directions.](images/idle-run-animator.png)
 
-Go to the 'Parameters' tab.  Bool parameters allow you to change between animations by setting them to 'true' or 'false' in your code. Parameter examples include 'forward', 'crashed', 'isRunning'. To add a parameter, click on the dropdown arrow next to the '+'. Choose 'bool' and add a new Parameter.
+Go to the Parameters tab.  Bool parameters allow you to change between animations by setting them to `true` or `false` in your code. Parameter examples include 'forward', 'crashed', 'isRunning'. To add a parameter, click on the drop-down arrow next to the '+'. Choose **bool** and add a new parameter.
 
-![The Animator window with Parameters tab selected in the top left. The '+' button is extended with optin 'bool' selected.](images/animator-parameters.png)
+![The Animator window with Parameters tab selected in the top left. The '+' button is extended with the option 'bool' selected.](images/animator-parameters.png)
 
-![The Animator window with Parameters tab selected and new parameter called 'isRunning' appears in the list.](images/isRunning-param.png)
+![The Animator window with Parameters tab selected. A new parameter called 'isRunning' appears in the list.](images/isRunning-param.png)
 
-Select the transition in the Inspector and add a 'Condition', and set it to the Parameter `isRunning` that you created to either `true` or `false`. In the example below, the transition from `sit` -> `walk` is triggered when `isRunning` is `true`.
+Select the transition in the Inspector and add a Condition. Set the Parameter `isRunning` that you created to either `true` or `false`. In the example below, the transition from `sit` > `walk` is triggered when `isRunning` is `true`.
 
-![transition in inspector showing the Condition isRunning is set to true](images/transition.png)
+![Transition in the Inspector window showing the Condition 'isRunning' is set to true.](images/transition.png)
 
 **Tip:** Unselect 'Exit Time' on transitions to make the animation change immediately without completing. 
 
@@ -49,7 +49,7 @@ Animator anim;
 
     void Update()
     {
-        if (Input.GetAxis("Vertical") > 0) // forwards
+        if (Input.GetAxis("Vertical") > 0) // Forwards
         {
             anim.SetBool("isRunning", true);
         }
@@ -63,4 +63,4 @@ Animator anim;
 
 --- /code ---
 
-![Car model animator and game view showing a dog moving with animation.](images/dog-anim-test.gif)
+![Car model animator and Game view showing a dog moving with animation.](images/dog-anim-test.gif)
